@@ -1,4 +1,4 @@
-local colors = require("colors.paradise")
+local colors = require("colors." .. _G.theme)
 
 require('base16-colorscheme').setup(
 	colors
@@ -68,11 +68,11 @@ settings = {
 		},
 		LineNr = 
 		{
-				guifg 	= colors.base04,
+				guifg 	= colors.base02,
 		},
 		SpecialKey = -- for stuff like "tabs", "trails", and "nbsp". A blatant lie.
 		{
-			guifg = colors.base02
+			guifg = colors.base01
 		},
 		VertSplit = 
 		{

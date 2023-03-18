@@ -29,6 +29,8 @@ return require('packer').startup(function(use)
 
 	use "RRethy/nvim-base16"
 
+	use "OmniSharp/omnisharp-vim"
+
 	use('nvim-treesitter/nvim-treesitter', { run = 'TSUpdate' })
 	use 'nvim-treesitter/playground'
 

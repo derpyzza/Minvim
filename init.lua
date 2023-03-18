@@ -1,4 +1,6 @@
 
+_G.theme = "paradise"
+
 require('impatient')
 
 require("config")
