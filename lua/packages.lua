@@ -3,17 +3,6 @@
 -----------------------------------------------------------
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
--- reload neovim when this file's edited
-vim.cmd [[
-augroup packer_user_config
-autocmd!
-autocmd BufWritePost packages.lua source <afile> | PackerSync
-augroup end
-]]
-
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
-
 -- Install plugins
 return require('packer').startup(function(use)
 	-- Packer can manage itself
