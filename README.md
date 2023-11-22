@@ -1,7 +1,6 @@
-Small neovim config, based off of nyoom.nvim and Concious.nvim :D
-
-(Using the Paradise Colourscheme)
-
+my neovim config.
 
 TODO:
-	Integrate fennel :D
+- CLeanup.
+- Create an installation script.
+- Better webdev support.
