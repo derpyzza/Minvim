@@ -22,7 +22,7 @@ return require('packer').startup(function(use)
 
 	use('nvim-treesitter/nvim-treesitter', { run = 'TSUpdate' })
 	use 'nvim-treesitter/playground'
-
+-- h
 	use 'ray-x/web-tools.nvim'
 
 	use {
@@ -58,7 +58,7 @@ return require('packer').startup(function(use)
 	}
 
 	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.0',
+		'nvim-telescope/telescope.nvim', tag = '0.1.3',
 		requires = { { 'nvim-lua/plenary.nvim' } },
 	}
 
