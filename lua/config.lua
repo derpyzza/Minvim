@@ -15,7 +15,7 @@ end
 local function StatusLine()
 	stl = ""
 	stl = stl .. "λ "
-	stl = stl .. "%#STATUS#%f%m%r%h%w: %= %##%2l»%L %#FILETYPE#%y "
+	stl = stl .. "%#STATUS#%f%m%r%h%w: %= %##%2l»%L %#FILETYPE#%y"
 	stl = stl .. getWords()
 
 	return stl
