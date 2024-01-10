@@ -34,20 +34,30 @@ return {
 
 	'lewis6991/impatient.nvim',
 --- Uncomment these if you want to manage LSP servers from neovim
-	{'williamboman/mason.nvim'},
-	{'williamboman/mason-lspconfig.nvim'},
+	{
+		'williamboman/mason.nvim',
+		config = function()
+			require("mason").setup()
+		end
+	},
+	{
+		'williamboman/mason-lspconfig.nvim',
+		config = function()
+			require("mason").setup()
+		end
+	},
 
 	{'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
 	{'neovim/nvim-lspconfig'},
 	{'hrsh7th/cmp-nvim-lsp'},
 	{'hrsh7th/nvim-cmp'},
 	{'L3MON4D3/LuaSnip'},
-	{ 'hrsh7th/cmp-buffer' },   -- Optional
-	{ 'hrsh7th/cmp-path' },     -- Optional
-	{ 'saadparwaiz1/cmp_luasnip' }, -- Optional
-	{ 'hrsh7th/cmp-nvim-lua' }, -- Optional
-	{ 'L3MON4D3/LuaSnip' },         -- Required
-	{ 'rafamadriz/friendly-snippets' }, -- Optional
+	{'hrsh7th/cmp-buffer' },   -- Optional
+	{'hrsh7th/cmp-path' },     -- Optional
+	{'saadparwaiz1/cmp_luasnip' }, -- Optional
+	{'hrsh7th/cmp-nvim-lua' }, -- Optional
+	{'L3MON4D3/LuaSnip' },         -- Required
+	{'rafamadriz/friendly-snippets' }, -- Optional
 
 	{
 		'nvim-telescope/telescope.nvim',
