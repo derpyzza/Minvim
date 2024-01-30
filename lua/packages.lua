@@ -1,68 +1,110 @@
 -----------------------------------------------------------
 -- Plugin manager configuration file
 -----------------------------------------------------------
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
--- Install plugins
+
+-- Plugins to install
 return {
+
+	{'simrat39/inlay-hints.nvim'},
+
+	{ "lukas-reineke/indent-blankline.nvim", 
+		main = "ibl", opts = {},
+		config = function ()
+			require("plugins.indent-blankline")
+		end
+	},
+	-- Base16 colourscheme
+	{
+		"RRethy/nvim-base16",
+		config = function ()
+			require("plugins.base-16")
+		end,
+	},
+
+	--{{ tree sitter
+	{
+		'nvim-treesitter/nvim-treesitter',
+		run = 'TSUpdate',
+		config = function()
+			require("plugins.treesitter")
+		end
+	},
+	'nvim-treesitter/playground',
+	--tree sitter }}
+
+	-- nvim-tree
+	{
+		'nvim-tree/nvim-tree.lua',
+		requires = {
+			'nvim-tree/nvim-web-devicons', -- optional
+		},
+		config = function()
+			require("plugins.nvim-tree")
+		end,
+	},
+
+	-- rust-tools
+	{
+		'simrat39/rust-tools.nvim',
+		config = function ()
+			require("plugins.rust-tools")
+		end
+	},
+
+	--== CMP ==
+	{
+		'hrsh7th/nvim-cmp',
+		config = function()
+			require("plugins.cmp")
+		end,
+	},
+	{'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+	{
+		"neovim/nvim-lspconfig",
+	},
+	{'hrsh7th/cmp-nvim-lsp'},
+	{'L3MON4D3/LuaSnip'},
+	{'hrsh7th/cmp-buffer' },
+	{'hrsh7th/cmp-path' }, 
+	{'saadparwaiz1/cmp_luasnip' },
+	{'rafamadriz/friendly-snippets' },
+	--== CMP ==
+	
+	-- telescope
+	{
+		'nvim-telescope/telescope.nvim',
+		tag = '0.1.4',
+		requires = { { 'nvim-lua/plenary.nvim' } },
+		config = function()
+			require("plugins.telescope")
+		end
+	},
+
+	-- {
+ --    'HiPhish/rainbow-delimiters.nvim',
+	-- },
+
 	-- Autopair
 	{
 		'windwp/nvim-autopairs',
 		config = function()
 			require('nvim-autopairs').setup()
 		end,
-	},
+	},	
 
-	"RRethy/nvim-base16",
-
-	"OmniSharp/omnisharp-vim",
-
-	{
-		'nvim-treesitter/nvim-treesitter',
-		run = 'TSUpdate',
-	},
-
-	'nvim-treesitter/playground',
-	'ray-x/web-tools.nvim',
-
-	{
-		'nvim-tree/nvim-tree.lua',
-		requires = {
-			'nvim-tree/nvim-web-devicons', -- optional
-		},
-	},
-
-	'lewis6991/impatient.nvim',
---- Uncomment these if you want to manage LSP servers from neovim
 	{
 		'williamboman/mason.nvim',
 		config = function()
 			require("mason").setup()
 		end
 	},
+
 	{
 		'williamboman/mason-lspconfig.nvim',
 		config = function()
-			require("mason").setup()
+			require("plugins.mason-lsp")
 		end
-	},
-
-	{'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
-	{'neovim/nvim-lspconfig'},
-	{'hrsh7th/cmp-nvim-lsp'},
-	{'hrsh7th/nvim-cmp'},
-	{'L3MON4D3/LuaSnip'},
-	{'hrsh7th/cmp-buffer' },   -- Optional
-	{'hrsh7th/cmp-path' },     -- Optional
-	{'saadparwaiz1/cmp_luasnip' }, -- Optional
-	{'hrsh7th/cmp-nvim-lua' }, -- Optional
-	{'L3MON4D3/LuaSnip' },         -- Required
-	{'rafamadriz/friendly-snippets' }, -- Optional
-
-	{
-		'nvim-telescope/telescope.nvim',
-		tag = '0.1.4',
-		requires = { { 'nvim-lua/plenary.nvim' } },
 	},
 
 	{
@@ -71,22 +113,20 @@ return {
 			require('Comment').setup()
 		end
 	},
+	
+	{
+		'rcarriga/nvim-notify',
+	},
 
-	-- use {
-	-- 	'j-hui/fidget.nvim',
-	-- 	config = function()
-	-- 		require("fidget").setup {}
-	-- 	end
-	-- }
+	{
+		'lluchs/vim-wren'
+	},
 
 	{
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
 		config = function()
 			require("trouble").setup {
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
 			}
 		end
 	},
@@ -104,9 +144,6 @@ return {
 			vim.o.timeout = true
 			vim.o.timeoutlen = 300
 			require("which-key").setup {
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
 			}
 		end
 	},
@@ -119,18 +156,14 @@ return {
 		end,
 	},
 
-	-- Dashboard (start screen)
 	{
-		'goolord/alpha-nvim',
-		requires = { 'kyazdani42/nvim-web-devicons' },
+    'goolord/alpha-nvim',
+    config = function ()
+        require'alpha'.setup(require'alpha.themes.dashboard'.config)
+    end
 	},
 
-	'simrat39/rust-tools.nvim',
 	-- Debugging
 	'nvim-lua/plenary.nvim',
 	'mfussenegger/nvim-dap',
-
-	{
-		"folke/twilight.nvim"
-	},
 }

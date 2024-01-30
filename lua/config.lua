@@ -1,41 +1,22 @@
-local function getWords()
-  if vim.bo.filetype == "md" or vim.bo.filetype == "txt" or vim.bo.filetype == "markdown" then
-    if vim.fn.wordcount().visual_words == 1 then
-      return tostring(vim.fn.wordcount().visual_words) .. " word"
-    elseif not (vim.fn.wordcount().visual_words == nil) then
-      return tostring(vim.fn.wordcount().visual_words) .. " words"
-    else
-      return tostring(vim.fn.wordcount().words) .. " words"
-    end
-  else
-    return ""
-  end
-end
-
-local function StatusLine()
-	stl = ""
-	stl = stl .. "λ "
-	stl = stl .. "%#STATUS#%f%m%r%h%w: %= %##%2l»%L %#FILETYPE#%y"
-	stl = stl .. getWords()
-
-	return stl
-end
-
-options = {
+local options = {
 	ru            = true,
-	list          = true,
-	number        = true,
-	relativenumber= true,
-	undofile      = true,
-	swapfile      = false,
-	writebackup   = false,
-	smartcase     = true,
-	lazyredraw    = true,
-	termguicolors = true,
-	cursorline		= true,
+	-- list          = true,
+	number         = true,
+	relativenumber = true,
+	undofile       = true,
+	smartcase      = true,
+	lazyredraw     = true,
+	termguicolors  = true,
+	cursorline		 = true,
+	cul						 = false,
+	writebackup    = false,
+	swapfile       = false,
+	showmode 			 = false,
+	linebreak			 = true,
 
 	mouse         = "a",
 	mousemodel 		= "extend",
+	numberwidth 	= 1,
 	tabstop       = 2,
 	shiftwidth    = 0,
 	scrolloff     = 4,
@@ -44,13 +25,38 @@ options = {
 	fillchars			= "eob: ",
 	incsearch 		= true,
 	clipboard     = "unnamedplus",
-	statusline    = StatusLine(),
 	cursorlineopt = "number",
-	completeopt = 'menu,menuone'
+	completeopt = 'menuone,noselect'
 }
 
 for i, v in pairs(options) do
 	vim.opt[i] = v
+end
+
+-- disable inbuilt vim plugins
+local built_ins = {
+  "2html_plugin",
+  "getscript",
+  "getscriptPlugin",
+  "gzip",
+  "logipat",
+  "netrw",
+  "netrwPlugin",
+  "netrwSettings",
+  "netrwFileHandlers",
+  "matchit",
+  "tar",
+  "tarPlugin",
+  "rrhelper",
+  "spellfile_plugin",
+  "vimball",
+  "vimballPlugin",
+  "zip",
+  "zipPlugin",
+}
+
+for _, plugin in pairs(built_ins) do
+  g["loaded_" .. plugin] = 1
 end
 
 vim.cmd [[ tnoremap <esc> <C-\><C-N>]]
