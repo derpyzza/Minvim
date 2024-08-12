@@ -7,7 +7,7 @@
 return {
 
 	{'simrat39/inlay-hints.nvim'},
-
+	--
 	{ "lukas-reineke/indent-blankline.nvim", 
 		main = "ibl", opts = {},
 		config = function ()
@@ -30,7 +30,7 @@ return {
 			require("plugins.treesitter")
 		end
 	},
-	'nvim-treesitter/playground',
+	-- 'nvim-treesitter/playground',
 	--tree sitter }}
 
 	-- nvim-tree
@@ -81,10 +81,6 @@ return {
 		end
 	},
 
-	-- {
- --    'HiPhish/rainbow-delimiters.nvim',
-	-- },
-
 	-- Autopair
 	{
 		'windwp/nvim-autopairs',
@@ -116,27 +112,7 @@ return {
 	
 	{
 		'rcarriga/nvim-notify',
-	},
-
-	{
-		'lluchs/vim-wren'
-	},
-
-	{
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-		config = function()
-			require("trouble").setup {
-			}
-		end
-	},
-
-	{
-		"ggandor/leap.nvim",
-		config = function ()
-			require('leap').add_default_mappings(true)
-		end
-	},
+	}, 
 
 	{
 		"folke/which-key.nvim",

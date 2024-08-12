@@ -9,8 +9,8 @@ local options = {
 	termguicolors  = true,
 	cursorline		 = true,
 	cul						 = false,
-	writebackup    = false,
-	swapfile       = false,
+	writebackup    = true,
+	swapfile       = true,
 	showmode 			 = false,
 	linebreak			 = true,
 
