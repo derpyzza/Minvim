@@ -30,17 +30,29 @@ settings = {
 		StatusLineNC= {
 				guifg		= colors.base03,
 				guibg 	= "NONE",
+				gui 		= "underline"
 		},
 		StatusLine 	= {
-				guifg		= colors.base0B,
+				guifg		= colors.base0E,
 				guibg 	= "NONE",
-				gui 		= "NONE"
+				-- guibg 	= colors.base0C,
+				gui 		= "underline"
 		},
-		FILETYPE 		= {
-				guifg		= colors.base0B
-		},
+		-- FILETYPE 		= {
+		-- 		guifg		= colors.base0B,
+		-- 		guibg 	= colors.base00,
+		-- 		-- guifg		= colors.base0B
+		-- },
+		-- FILETYPENC 		= {
+		-- 		guifg		= colors.base0B,
+		-- 		guibg 	= colors.base00,
+		-- 		-- guifg		= colors.base0B
+		-- },
 		STATUS 			= {
-				guifg		= colors.base0D,
+				guifg		= colors.base0B,
+				guibg 	= colors.base00,
+				gui 		= "underline"
+				-- guifg		= colors.base0D,
 		},
 		CursorLineNr = {
 			guifg = colors.base0E,
@@ -76,8 +88,11 @@ settings = {
 		},
 		VertSplit = 
 		{
-			guifg		= colors.base02
+			guifg		= colors.base02,
 		},
+		HorSplit = {
+			guifg 	= colors.base02,
+		}
 }
 
 for k, v in pairs(settings) do

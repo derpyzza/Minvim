@@ -22,7 +22,7 @@ return {
 		end,
 	},
 
-	--{{ tree sitter
+	-- tree sitter
 	{
 		'nvim-treesitter/nvim-treesitter',
 		run = 'TSUpdate',
@@ -30,8 +30,6 @@ return {
 			require("plugins.treesitter")
 		end
 	},
-	-- 'nvim-treesitter/playground',
-	--tree sitter }}
 
 	-- nvim-tree
 	{
@@ -110,9 +108,9 @@ return {
 		end
 	},
 	
-	{
-		'rcarriga/nvim-notify',
-	}, 
+	-- {
+	-- 	'rcarriga/nvim-notify',
+	-- }, 
 
 	{
 		"folke/which-key.nvim",
@@ -141,5 +139,8 @@ return {
 
 	-- Debugging
 	'nvim-lua/plenary.nvim',
-	'mfussenegger/nvim-dap',
+	{ "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
+	{
+	'mfussenegger/nvim-dap'
+	},
 }
